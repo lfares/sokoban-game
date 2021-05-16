@@ -43,12 +43,37 @@ function drawLevel() {
 }
 
 function drawGameElement(elementImgSrc, xPos, yPos) {
-  var elementImg = new Image();
+  let elementImg = new Image();
   elementImg.src = elementImgSrc;
   elementImg.onload = function() {
     context.drawImage(elementImg, xPos * 50, yPos * 50, 50, 50);
   };
+}
 
+var possibleMovements = {
+  up: [-1, 0],
+  down: [1, 0],
+  left: [0, -1],
+  right: [0, 1]
+};
+
+function move(currPosition, direction) {
+  let newPositionCoordinates = getNewCoordinates(currPosition, direction);
+  let newPositionElement = getElement(newPositionCoordinates[0], newPositionCoordinates[1]);
+  makeMovement();
+}
+
+function getNewCoordinates(currPosition, direction) {
+  return [currPosition[0] + possibleMovements[direction][0],
+          currPosition[1] + possibleMovements[direction][1]];
+}
+
+function getElement(x, y) {
+  return levelMatrix[x][y];
+}
+
+function makeMovement() {
+  
 }
 
 document.addEventListener('DOMContentLoaded', () => {
