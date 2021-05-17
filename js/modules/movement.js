@@ -42,6 +42,9 @@ class Movement {
             const newBoxPosition = this.getNewCoordinates(newPosition, direction);
             const newBoxPositionElement = this.level.getElementByPosition(newBoxPosition);
             if (this.isPositionAvailable(newBoxPositionElement)) {
+                if (newPositionElement.name == 'boxOnGoal') {
+                    this.level.boxOutOfGoal++;
+                }
                 this.moveCharacter(currPosition, newPosition);
                 this.pushBox(newBoxPosition);
             }
@@ -85,8 +88,16 @@ class Movement {
         const newPositionElement = this.level.getElementByPosition(newPosition); 
         if (newPositionElement.name == 'goal') {
             this.level.setElementByPosition(newPosition, 'boxOnGoal');
+            this.level.boxOutOfGoal--;
+            this.checkForWin();
         } else {
             this.level.setElementByPosition(newPosition, 'box');
+        }
+    }
+
+    checkForWin() {
+        if (this.level.boxOutOfGoal == 0) {
+            this.level.displayWin();
         }
     }
 }

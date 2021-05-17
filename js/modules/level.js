@@ -1,10 +1,12 @@
 import Element from './element';
+import Movement from './movement';
 
 class Level {
     constructor(canvas, context) {
         this.canvas = canvas;
         this.context = context;
 
+        this.boxOutOfGoal = 0;
         this.movements = 0;
         this.resets = 0;
         this.time = 0;
@@ -43,11 +45,20 @@ class Level {
             for(let j = 0; j < levelMatrix.length; j++) {
                 if (levelMatrix[i][j] == '@') {
                     this.characterPosition = [i, j];
+                } else if (levelMatrix[i][j] == '$') {
+                    this.boxOutOfGoal++;
                 }
                 arrayAuxiliar[j] = new Element(levelMatrix[i][j], [i, j]);
             }
             this.grid.push(arrayAuxiliar);
         }
+    }
+
+    startLevel() {
+        this.drawLevel();
+        const movementClass = new Movement(this);
+        this.handleKeyDownFunction = movementClass.checkForMovement.bind(movementClass);
+        document.addEventListener('keydown', this.handleKeyDownFunction);
     }
 
     drawLevel() {
@@ -74,6 +85,12 @@ class Level {
     updateMoveCount() {
         const counter = document.getElementById('move-counter');
         counter.innerHTML = this.movements;
+    }
+
+    displayWin() {
+        const winModal = document.getElementById('win-div');
+        winModal.className = 'active';
+        document.removeEventListener('keydown', this.handleKeyDownFunction);
     }
 
 }
