@@ -2,16 +2,21 @@ import Element from './element';
 import Movement from './movement';
 
 class Level {
-    constructor(canvas, context) {
-        this.canvas = canvas;
-        this.context = context;
+    constructor(id, levelMatrix) {
+        this.levelMatrix = levelMatrix;
+        this.id = id;
 
         this.boxOutOfGoal = 0;
         this.movements = 0;
         this.resets = 0;
         this.time = 0;
         this.grid = [];
+        this.canvas = document.getElementById('canvas-main');
+        this.context = this.canvas.getContext('2d');
+
         this.populateGridWithElements();
+        this.canvas.width = this.grid[0].length * 50;
+        this.canvas.height = this.grid.length * 50;
     }
 
     /**
@@ -30,25 +35,16 @@ class Level {
     }
 
     populateGridWithElements() {
-        const levelMatrix = [
-            ['#', '#', '#', '#', '#', '#', '#'], 
-            ['#', '.', '@', ' ', '#', ' ', '#'], 
-            ['#', '$', '*', ' ', '$', ' ', '#'], 
-            ['#', ' ', ' ', ' ', '$', ' ', '#'], 
-            ['#', ' ', '.', '.', ' ', ' ', '#'], 
-            ['#', ' ', ' ', '*', ' ', ' ', '#'], 
-            ['#', '#', '#', '#', '#', '#', '#']
-        ];
-        // const levelMatrix = getLevelMatrixById(id); - to be done when there are more levels
-        for(let i = 0; i < levelMatrix[0].length; i++) {
+        console.log(this.levelMatrix);
+        for(let i = 0; i < this.levelMatrix.length; i++) {
             const arrayAuxiliar = [];
-            for(let j = 0; j < levelMatrix.length; j++) {
-                if (levelMatrix[i][j] == '@') {
+            for(let j = 0; j < this.levelMatrix[0].length; j++) {
+                if (this.levelMatrix[i][j] == '@') {
                     this.characterPosition = [i, j];
-                } else if (levelMatrix[i][j] == '$') {
+                } else if (this.levelMatrix[i][j] == '$') {
                     this.boxOutOfGoal++;
                 }
-                arrayAuxiliar[j] = new Element(levelMatrix[i][j], [i, j]);
+                arrayAuxiliar[j] = new Element(this.levelMatrix[i][j], [i, j]);
             }
             this.grid.push(arrayAuxiliar);
         }
@@ -63,8 +59,8 @@ class Level {
 
     drawLevel() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        for(let i = 0; i < this.grid[0].length; i++) {
-            for(let j = 0; j < this.grid.length; j++) {
+        for(let i = 0; i < this.grid.length; i++) {
+            for(let j = 0; j < this.grid[0].length; j++) {
                 let currElement = this.grid[i][j];
                 if (currElement.imgSrc != 'empty') {
                     this.drawElement(currElement, this.context);
@@ -92,7 +88,6 @@ class Level {
         winModal.className = 'active';
         document.removeEventListener('keydown', this.handleKeyDownFunction);
     }
-
 }
 
 export default Level;

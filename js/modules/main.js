@@ -1,14 +1,12 @@
-import Level from './level';
+import Game from './game';
 
-const canvas = document.getElementById('canvas-main');
-const context = canvas.getContext('2d');
-
-var currLevel = new Level(canvas, context);
-canvas.width = currLevel.grid[0].length * 50;
-canvas.height = currLevel.grid.length * 50;
+const levels = require('./levels.json');
+const game = new Game(levels);
 
 document.addEventListener('DOMContentLoaded', () => {
-  currLevel.startLevel();
+  game.startGame();
 });
+
+
 
 
