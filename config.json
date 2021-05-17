@@ -1,0 +1,11 @@
+{
+    "rootFolder": "./",
+    "defaultIndex": "index.html",
+    "types": {
+        "html": "text/html",
+        "png": "image/png",
+        "css": "text/css",
+        "js": "text/javascript",
+        "json": "application/json"
+    }
+}
