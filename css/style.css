@@ -8,5 +8,5 @@
 canvas {
     height: 600px;
     width: 600px;
-    background: black;
+    background-image: url('../img/ground.png');
 }
