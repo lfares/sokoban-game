@@ -4,6 +4,18 @@ This game is part of the Conclusion Project of a Computer Engineering course.
 
 It uses JavaScript, HTML and CSS to create a version of a famous game called Sokoban, where the player needs to push boxs to the goals.
 
+## How to run
+Download the code or run the following command:
+
+    git clone https://github.com/lfares/sokoban-game.git
+
+Then, open the _index.html_ file or go to http://localhost:8080 on your browser.
+
+## Implementation
+
+### Images
+The images present on the game are from [Open Game Art](https://opengameart.org/content/sokoban-100-tiles).
+
 ### JavaScript Modules
 The project uses JavaScript Modules to organize and separate the classes and, to minimize the number of HTTP requests, it counts with **[Webpack](https://webpack.js.org/)**. 
 
