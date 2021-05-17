@@ -1,11 +1,14 @@
 import Element from './element';
 
 class Level {
-    constructor() {
-        this.grid = [];
+    constructor(canvas, context) {
+        this.canvas = canvas;
+        this.context = context;
+
         this.movements = 0;
         this.resets = 0;
         this.time = 0;
+        this.grid = [];
         this.populateGridWithElements();
     }
 
@@ -13,7 +16,15 @@ class Level {
      * Gets and Sets
      */
     getElementByPosition(position) {
-        return grid[position[0]][position[1]];
+        return this.grid[position[0]][position[1]];
+    }
+
+    setElementByPosition(position, elementName) {
+        this.grid[position[0]][position[1]].setElement(elementName);
+    }
+
+    setCharacterPosition(position) {
+        this.characterPosition = position;
     }
 
     populateGridWithElements() {
@@ -30,20 +41,22 @@ class Level {
         for(let i = 0; i < levelMatrix[0].length; i++) {
             const arrayAuxiliar = [];
             for(let j = 0; j < levelMatrix.length; j++) {
+                if (levelMatrix[i][j] == '@') {
+                    this.characterPosition = [i, j];
+                }
                 arrayAuxiliar[j] = new Element(levelMatrix[i][j], [i, j]);
             }
             this.grid.push(arrayAuxiliar);
         }
     }
 
-    startLevel(context, canvas) {
-        context.clearRect(0, 0, canvas.width, canvas.height);
+    drawLevel() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
         for(let i = 0; i < this.grid[0].length; i++) {
             for(let j = 0; j < this.grid.length; j++) {
                 let currElement = this.grid[i][j];
                 if (currElement.imgSrc != 'empty') {
-                    console.log("Gone to drawElement");
-                    this.drawElement(currElement, context);
+                    this.drawElement(currElement, this.context);
                 }
             }
         }
@@ -56,6 +69,7 @@ class Level {
             context.drawImage(elementImg, element.getY() * 50, element.getX() * 50, 50, 50);
         };
     }
+
 }
 
 export default Level;
