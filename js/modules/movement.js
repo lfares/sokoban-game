@@ -42,12 +42,12 @@ class Movement {
             const newBoxPosition = this.getNewCoordinates(newPosition, direction);
             const newBoxPositionElement = this.level.getElementByPosition(newBoxPosition);
             if (this.isPositionAvailable(newBoxPositionElement)) {
-                console.log("passou aqui2");
                 this.moveCharacter(currPosition, newPosition);
                 this.pushBox(newBoxPosition);
             }
         }
         this.level.movements++;
+        console.log(this.level.movements);
     }
       
     getNewCoordinates(currPosition, direction) {

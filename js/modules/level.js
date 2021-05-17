@@ -60,6 +60,7 @@ class Level {
                 }
             }
         }
+        this.updateMoveCount();
     }
 
     drawElement(element, context) {
@@ -68,6 +69,11 @@ class Level {
         elementImg.onload = function() {
             context.drawImage(elementImg, element.getY() * 50, element.getX() * 50, 50, 50);
         };
+    }
+
+    updateMoveCount() {
+        const counter = document.getElementById('move-counter');
+        counter.innerHTML = this.movements;
     }
 
 }
