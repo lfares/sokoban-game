@@ -50,7 +50,6 @@ class Movement {
             }
         }
         this.level.movements++;
-        console.log(this.level.movements);
     }
       
     getNewCoordinates(currPosition, direction) {

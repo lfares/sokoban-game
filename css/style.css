@@ -11,6 +11,10 @@ canvas {
     background-image: url('../img/ground.png');
 }
 
+h3 {
+    margin-left: 20px;
+}
+
 .main-game {
     margin-top: 50px;
     display: flex;
@@ -53,4 +57,9 @@ canvas {
     background: #f6f6f6;
     border-radius: 20px;
     text-align: center;
-  }
+}
+
+.game-info {
+    display: flex;
+    flex-direction: row;
+}

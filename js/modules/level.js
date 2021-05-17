@@ -51,6 +51,8 @@ class Level {
     }
 
     startLevel() {
+        const levelIdShow = document.getElementById('level-id');
+        levelIdShow.innerHTML = this.id;
         this.drawLevel();
         const movementClass = new Movement(this);
         this.handleKeyDownFunction = movementClass.checkForMovement.bind(movementClass);
