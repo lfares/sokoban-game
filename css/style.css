@@ -6,13 +6,13 @@
 }
 
 canvas {
-    height: 500px;
-    width: 500px;
+    margin-top: 15px;
     background-image: url('../img/ground.png');
 }
 
 h3 {
-    margin-left: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .main-game {

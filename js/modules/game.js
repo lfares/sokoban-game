@@ -8,14 +8,14 @@ class Game {
 
     startGame() {
         this.selectNewLevel();
-        // this.addLevelResetListener();
+        this.addLevelResetListener();
         this.addNextLevelListener();
     }
 
     selectNewLevel() {
         console.log(this.levels[this.currentLevelId.toString()])
-        const currLevel = new Level(this.currentLevelId, this.levels[this.currentLevelId.toString()]);
-        currLevel.startLevel();
+        this.currLevel = new Level(this.currentLevelId, this.levels[this.currentLevelId.toString()]);
+        this.currLevel.startLevel();
     }
 
     addNextLevelListener() {
@@ -25,6 +25,15 @@ class Game {
             this.currentLevelId++;
             const winModal = document.getElementById('win-div');
             winModal.className = 'hidden';
+            this.selectNewLevel();
+        });
+    }
+
+    addLevelResetListener() {
+        const nextLevelEvent = document.getElementById('reset-button');
+        nextLevelEvent.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.currLevel.resetLevel();
             this.selectNewLevel();
         });
     }

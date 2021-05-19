@@ -15,8 +15,8 @@ class Level {
         this.context = this.canvas.getContext('2d');
 
         this.populateGridWithElements();
-        this.canvas.width = this.grid[0].length * 50;
-        this.canvas.height = this.grid.length * 50;
+        this.canvas.width = this.levelMatrix[0].length * 64;
+        this.canvas.height = this.levelMatrix.length * 64;
     }
 
     /**
@@ -54,8 +54,8 @@ class Level {
         const levelIdShow = document.getElementById('level-id');
         levelIdShow.innerHTML = this.id;
         this.drawLevel();
-        const movementClass = new Movement(this);
-        this.handleKeyDownFunction = movementClass.checkForMovement.bind(movementClass);
+        this.movementClass = new Movement(this);
+        this.handleKeyDownFunction = this.movementClass.checkForMovement.bind(this.movementClass);
         document.addEventListener('keydown', this.handleKeyDownFunction);
     }
 
@@ -76,7 +76,7 @@ class Level {
         let elementImg = new Image();
         elementImg.src = element.imgSrc;
         elementImg.onload = function() {
-            context.drawImage(elementImg, element.getY() * 50, element.getX() * 50, 50, 50);
+            context.drawImage(elementImg, element.getY() * 64, element.getX() * 64, 64, 64);
         };
     }
 
@@ -89,6 +89,11 @@ class Level {
         const winModal = document.getElementById('win-div');
         winModal.className = 'active';
         document.removeEventListener('keydown', this.handleKeyDownFunction);
+    }
+
+    resetLevel() {
+        this.movementClass.level = null;
+        this.movementClass = null;
     }
 }
 

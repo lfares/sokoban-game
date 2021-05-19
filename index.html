@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sokoban</title>
     <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" src="./js/bundle.js"></script>
 </head>
 <body>
     <div class="main-game">
         <div class="game-info">
             <h3>Fase <span id="level-id"></span></h3>
             <h3>Movimentos: <span id="move-counter"></span></h3>
+            <button id="reset-button" class="button">Reiniciar</button>
         </div>
         <canvas id="canvas-main"></canvas>
     </div>
@@ -23,6 +25,5 @@
         </section>
         <div class="modal-screen"></div>
     </div>
-    <script type="text/javascript" src="./js/bundle.js"></script>
 </body>
 </html>
