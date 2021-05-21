@@ -15,6 +15,10 @@ h3 {
     margin-right: 10px;
 }
 
+button {
+    margin-top: 10px;
+}
+
 .main-game {
     margin-top: 50px;
     display: flex;

@@ -8,7 +8,6 @@ class Level {
 
         this.boxOutOfGoal = 0;
         this.movements = 0;
-        this.resets = 0;
         this.time = 0;
         this.grid = [];
         this.canvas = document.getElementById('canvas-main');
@@ -35,7 +34,6 @@ class Level {
     }
 
     populateGridWithElements() {
-        console.log(this.levelMatrix);
         for(let i = 0; i < this.levelMatrix.length; i++) {
             const arrayAuxiliar = [];
             for(let j = 0; j < this.levelMatrix[0].length; j++) {
