@@ -57,4 +57,4 @@ jobs:
         package: .
         
     - name: active webserver
-      run: nodemon index.js
+      run: npm start
