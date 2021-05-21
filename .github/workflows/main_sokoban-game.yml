@@ -24,6 +24,7 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm install
+        npm install nodemon
         npm run build --if-present
         npm run test --if-present
 
@@ -52,5 +53,5 @@ jobs:
       with:
         app-name: 'sokoban-game'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_ca1bb7cbabd44244a1e15eae1452ff17 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_28b407b714b44826a6eb234e117a9f03 }}
         package: .
