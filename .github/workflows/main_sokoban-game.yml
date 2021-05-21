@@ -55,3 +55,6 @@ jobs:
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_28b407b714b44826a6eb234e117a9f03 }}
         package: .
+        
+    - name: active webserver
+      run: nodemon index.js
