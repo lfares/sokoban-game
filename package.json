@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack && nodemon index.js"
   },
   "devDependencies": {
     "webpack": "^5.37.0",
     "webpack-cli": "^4.7.0"
+  },
+  "dependencies": {
+    "mocha": "^8.4.0"
   }
 }
