@@ -8,7 +8,6 @@ class Level {
 
         this.boxOutOfGoal = 0;
         this.movements = 0;
-        this.time = 0;
         this.grid = [];
         this.canvas = document.getElementById('canvas-main');
         this.context = this.canvas.getContext('2d');

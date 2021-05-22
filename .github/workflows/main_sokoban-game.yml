@@ -24,7 +24,6 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm install
-        npm install nodemon
         npm run build --if-present
         npm run test --if-present
 
@@ -55,3 +54,6 @@ jobs:
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_28b407b714b44826a6eb234e117a9f03 }}
         package: .
+        
+    - name: active webserver
+      run: npm start

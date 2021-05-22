@@ -5,10 +5,15 @@ class Game {
         this.levels = levels;
         this.player = player;
         this.currentLevelId = 1;
+        this.time = window.time;
     }
 
     startGame() {
+        clearInterval(this.time);
+        this.startTimer();
+
         this.selectNewLevel();
+
         this.addLevelResetListener();
         this.addNextLevelListener();
     }
@@ -16,6 +21,11 @@ class Game {
     selectNewLevel() {
         console.log(this.levels[this.currentLevelId.toString()])
         this.currLevel = new Level(this.currentLevelId, this.levels[this.currentLevelId.toString()]);
+        // Start time of level for player stats if this is not a reset
+        if (this.player.timeByLevel[this.currentLevelId][0] == null) {
+            this.player.timeByLevel[this.currentLevelId][0] = this.time;
+        }
+
         this.currLevel.startLevel();
     }
 
@@ -23,7 +33,9 @@ class Game {
         const nextLevelEvent = document.getElementById('next-level-button');
         nextLevelEvent.addEventListener('click', (e) => {
             e.preventDefault();
+            // Update level stats for player 
             this.player.movementsByLevel[this.currentLevelId] += this.currLevel.movements;
+            this.player.timeByLevel[this.currentLevelId][1] = this.time;
             console.log(this.player);
 
             this.currentLevelId++;
@@ -41,6 +53,24 @@ class Game {
             this.currLevel.resetLevel();
             this.selectNewLevel();
         });
+    }
+
+    startTimer() {
+        this.time = 0;
+        window.timer = setInterval(() => {
+            this.displayTime(this.time);
+            this.time += 1;
+        }, 1000);
+    }
+
+    displayTime() {
+        const minutes = Math.floor(this.time / 60);
+        const seconds = Math.floor(this.time % 60);
+        const minutesString = minutes < 10 ? `0${minutes}` : `${minutes}`;
+        const secondsString = seconds < 10 ? `0${seconds}` : `${seconds}`;
+
+        const timer = document.getElementById('level-time');
+        timer.innerHTML = `${minutesString}:${secondsString}`;
     }
 
 }
