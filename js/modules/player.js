@@ -5,20 +5,26 @@ class Player {
             "1": 0,
             "2": 0,
             "3": 0,
-            "4": 0
+            "4": 0,
+            "5": 0,
+            "6": 0
         };
         this.completedLevels = 0
         this.resetsByLevel = {
             "1": 0,
             "2": 0,
             "3": 0,
-            "4": 0
+            "4": 0,
+            "5": 0,
+            "6": 0
         };
         this.timeByLevel = {
             "1": [null, null],
             "2": [null, null],
             "3": [null, null],
-            "4": [null, null]
+            "4": [null, null],
+            "5": [null, null],
+            "6": [null, null]
         }
     }
 }
