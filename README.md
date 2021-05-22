@@ -9,7 +9,18 @@ Download the code or run the following command:
 
     git clone https://github.com/lfares/sokoban-game.git
 
-Then, open the _index.html_ file or go to http://localhost:8080 on your browser.
+Then, open the _index.html_ file to play or start the web server.
+
+To do that you will need to have Node.js installed. Then, you need to install npm and nodemon:
+
+    npm install
+    npm install nodemon
+
+Now, just start the server:
+
+    npm run build
+
+Go to http://localhost:8080 on your browser and start playing!
 
 ## Implementation
 
