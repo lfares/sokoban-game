@@ -16,10 +16,10 @@ class Game {
 
         this.addLevelResetListener();
         this.addNextLevelListener();
+        this.addEndGameListener();
     }
 
     selectNewLevel() {
-        console.log(this.levels[this.currentLevelId.toString()])
         this.currLevel = new Level(this.currentLevelId, this.levels[this.currentLevelId.toString()]);
         // Start time of level for player stats if this is not a reset
         if (this.player.timeByLevel[this.currentLevelId][0] == null) {
@@ -36,6 +36,7 @@ class Game {
             // Update level stats for player 
             this.player.movementsByLevel[this.currentLevelId] += this.currLevel.movements;
             this.player.timeByLevel[this.currentLevelId][1] = this.time;
+            this.player.completedLevels++;
             console.log(this.player);
 
             this.currentLevelId++;
@@ -52,6 +53,17 @@ class Game {
             this.player.resetsByLevel[this.currentLevelId]++;
             this.currLevel.resetLevel();
             this.selectNewLevel();
+        });
+    }
+
+    addEndGameListener() {
+        const endGameEvent = document.getElementById('end-div');
+        endGameEvent.addEventListener('mouseenter', (e) => {
+            e.preventDefault();
+            this.player.movementsByLevel[this.currentLevelId] += this.currLevel.movements;
+            this.player.timeByLevel[this.currentLevelId][1] = this.time;
+            this.player.completedLevels++;
+            console.log(this.player);
         });
     }
 

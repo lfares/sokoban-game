@@ -88,6 +88,12 @@ class Level {
         document.removeEventListener('keydown', this.handleKeyDownFunction);
     }
 
+    displayEndGame() {
+        const endGameModal = document.getElementById('end-div');
+        endGameModal.className = 'active';
+        document.removeEventListener('keydown', this.handleKeyDownFunction);
+    }
+
     resetLevel() {
         this.movementClass.level = null;
         this.movementClass = null;

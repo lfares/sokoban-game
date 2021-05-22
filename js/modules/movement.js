@@ -96,6 +96,9 @@ class Movement {
 
     checkForWin() {
         if (this.level.boxOutOfGoal == 0) {
+            if (this.level.id == "6") { // last level
+                this.level.displayEndGame();
+            }
             this.level.displayWin();
         }
     }
