@@ -26,6 +26,8 @@ class Player {
             "5": [null, null],
             "6": [null, null]
         };
+
+        this.dbId = null;
     }
 
     // savePlayerToJSON() {
@@ -35,15 +37,15 @@ class Player {
     //     fs.writeFile(path, jsonString);
     // }
 
-    // getClassAttributesDict() {
-    //     return {
-    //         "name": this.name,
-    //         "completedLevels": this.completedLevels,
-    //         "movementsByLevel": this.movementsByLevel,
-    //         "resetsByLevel": this.resetsByLevel,
-    //         "timeByLevel": this.timeByLevel
-    //     } 
-    // }
+    getClassAttributesDict() {
+        return {
+            "name": this.name,
+            "completedLevels": this.completedLevels,
+            "movementsByLevel": this.movementsByLevel,
+            "resetsByLevel": this.resetsByLevel,
+            "timeByLevel": this.timeByLevel
+        } 
+    }
 }
 
 export default Player;

@@ -1,4 +1,7 @@
-import Level from './level'
+import Level from './level';
+import firebase from 'firebase/app';
+import "firebase/analytics";
+import "firebase/database";
 
 class Game {
     constructor(levels, player) {
@@ -11,6 +14,8 @@ class Game {
     startGame() {
         clearInterval(this.time);
         this.startTimer();
+
+        this.initializeDB();
 
         this.selectNewLevel();
 
@@ -35,6 +40,7 @@ class Game {
             e.preventDefault();
 
             this.updateFinalLevelPlayerStats();
+            this.updateDB();
 
             this.currentLevelId++;
             const winModal = document.getElementById('win-div');
@@ -65,8 +71,32 @@ class Game {
         this.player.movementsByLevel[this.currentLevelId] += this.currLevel.movements;
         this.player.timeByLevel[this.currentLevelId][1] = this.time;
         this.player.completedLevels++;
-        // this.player.savePlayerToJSON();
+        
+        this.updateDB();
         console.log(this.player);
+    }
+
+    initializeDB() {
+        const firebaseConfig = {
+            apiKey: "AIzaSyD8NLxLYJvo59-Cl8iSFODhEr532EB7ukM",
+            authDomain: "sokoban-game-6cb86.firebaseapp.com",
+            projectId: "sokoban-game-6cb86",
+            storageBucket: "sokoban-game-6cb86.appspot.com",
+            messagingSenderId: "250619385583",
+            appId: "1:250619385583:web:c832210c79850c31626d1a",
+            measurementId: "G-C2WGSZD1FD",
+            databaseURL: "https://sokoban-game-6cb86-default-rtdb.firebaseio.com"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        this.firebaseDB = firebase.database();
+    }
+
+    updateDB() {
+        const playerRef = 'players/' + this.player.name;
+        this.firebaseDB.ref(playerRef).update(this.player.getClassAttributesDict());
     }
 
     startTimer() {
