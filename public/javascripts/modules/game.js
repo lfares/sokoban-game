@@ -21,7 +21,7 @@ class Game {
 
         this.addLevelResetListener();
         this.addNextLevelListener();
-        this.addEndGameListener();
+        this.addEndLevelsListener();
     }
 
     selectNewLevel() {
@@ -61,8 +61,8 @@ class Game {
         });
     }
 
-    addEndGameListener() {
-        const endGameEvent = document.getElementById('end-div');
+    addEndLevelsListener() {
+        const endGameEvent = document.getElementById('end-levels-div');
         endGameEvent.addEventListener('mouseenter', (e) => {
             e.preventDefault();
             this.updateFinalLevelPlayerStats();
@@ -103,10 +103,13 @@ class Game {
     }
 
     startTimer() {
-        this.time = 0;
+        this.time = 420;
         window.timer = setInterval(() => {
             this.displayTime(this.time);
-            this.time += 1;
+            this.time--;
+            if (this.time == 0) {
+                this.displayEndGame();
+            }
         }, 1000);
     }
 
@@ -118,6 +121,13 @@ class Game {
 
         const timer = document.getElementById('level-time');
         timer.innerHTML = `${minutesString}:${secondsString}`;
+    }
+
+    displayEndGame() {
+        const endModal = document.getElementById('end-time-div');
+        endModal.className = 'active';
+        this.player.movementsByLevel[this.currentLevelId].push(this.currLevel.movements);
+        this.player.timeByLevel[this.currentLevelId][1] = this.time;
     }
 
 }
