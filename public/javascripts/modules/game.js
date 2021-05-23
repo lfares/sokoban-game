@@ -64,6 +64,7 @@ class Game {
         endGameEvent.addEventListener('mouseenter', (e) => {
             e.preventDefault();
             this.updateFinalLevelPlayerStats();
+            this.player = null;
         });
     }
 
@@ -71,7 +72,7 @@ class Game {
         this.player.movementsByLevel[this.currentLevelId] += this.currLevel.movements;
         this.player.timeByLevel[this.currentLevelId][1] = this.time;
         this.player.completedLevels++;
-        
+
         this.updateDB();
         console.log(this.player);
     }
