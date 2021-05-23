@@ -54,6 +54,8 @@ class Game {
         nextLevelEvent.addEventListener('click', (e) => {
             e.preventDefault();
             this.player.resetsByLevel[this.currentLevelId]++;
+            this.player.movementsByLevel[this.currentLevelId].push(this.currLevel.movements);
+
             this.currLevel.resetLevel();
             this.selectNewLevel();
         });
@@ -69,7 +71,7 @@ class Game {
     }
 
     updateFinalLevelPlayerStats() {
-        this.player.movementsByLevel[this.currentLevelId] += this.currLevel.movements;
+        this.player.movementsByLevel[this.currentLevelId].push(this.currLevel.movements);
         this.player.timeByLevel[this.currentLevelId][1] = this.time;
         this.player.completedLevels++;
 
