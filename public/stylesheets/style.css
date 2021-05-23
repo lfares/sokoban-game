@@ -1,8 +1,79 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-size: large;
+  background: #f6f6f6;
 }
 
-a {
-  color: #00B7FF;
+canvas {
+  margin-top: 15px;
+  background-image: url('../images/ground.png');
 }
+
+h1 {
+  font-size: xx-large;
+  margin: 10px;
+}
+
+h3 {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+input[type=submit], button {
+  border-radius: 12px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.main-game {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+#win-div {
+  opacity: 1;
+}
+
+.modal-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.9);
+  transition: opacity 1s;
+}
+
+.modal-content {
+  position: absolute;
+  z-index: 1000;
+  top: 50%;
+  left: 25%;
+  right: 25%;
+  padding: 50px;
+  transform: translateY(-50%);
+  background: #f6f6f6;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.game-info {
+  display: flex;
+  flex-direction: row;
+}
+

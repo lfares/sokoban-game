@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "build": "webpack",
     "start": "node ./bin/www"
   },
   "dependencies": {
@@ -14,5 +15,9 @@
     "mongodb": "^3.6.8",
     "monk": "^7.3.4",
     "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0"
   }
 }

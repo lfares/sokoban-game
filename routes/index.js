@@ -7,3 +7,8 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+
+/* GET sokoban. */
+router.get('/sokoban', function(req, res, next) {
+  res.render('sokoban', { title: 'Sokoban!' });
+});

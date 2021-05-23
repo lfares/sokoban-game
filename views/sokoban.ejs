@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="./javascripts/bundle.js"></script>
+  </head>
+  <body>
+    <div class="main-game">
+      <div class="game-info">
+          <h3>Fase <span id="level-id"></span></h3>
+          <h3>Tempo: <span id="level-time"></span></h3>
+          <h3>Movimentos: <span id="move-counter"></span></h3>
+          <button id="reset-button" class="button">Reiniciar</button>
+      </div>
+      <canvas id="canvas-main"></canvas>
+  </div>
+  <div id="player-div" class="hidden">
+      <section class="modal-content">
+          <form>
+              <label for="player-name">Insira seu nome</label><br>
+              <input type="text" id="player-name" name="player-name" autocomplete="off"><br>
+              <input type="submit" id="start-game" value="Começar a jogar">
+          </form>
+      </section>
+      <div class="modal-screen"></div>
+  </div>
+  <div id="win-div" class="hidden">
+      <section class="modal-content">
+        <h1>Parabéns!</h2>
+        <h1>Você passou de fase!</h2>
+        <button id="next-level-button" class="button">Jogar próxima fase</button>
+      </section>
+      <div class="modal-screen"></div>
+  </div>
+  <div id="end-div" class="hidden">
+      <section class="modal-content">
+        <h1>Parabéns!</h2>
+        <h1>Você terminou todas as fases!</h2>
+      </section>
+      <div class="modal-screen"></div>
+  </div>
+  </body>
+</html>
