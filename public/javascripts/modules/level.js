@@ -92,7 +92,7 @@ class Level {
     }
 
     displayEndGame() {
-        const endGameModal = document.getElementById('end-div');
+        const endGameModal = document.getElementById('end-levels-div');
         endGameModal.className = 'active';
         document.removeEventListener('keydown', this.handleKeyDownFunction);
     }
