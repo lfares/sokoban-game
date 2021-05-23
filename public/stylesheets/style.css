@@ -36,6 +36,10 @@ img {
   width: 20px;
 }
 
+input {
+  padding: 8px;
+}
+
 input[type=submit], button {
   border-radius: 12px;
   margin: 10px;
@@ -52,8 +56,8 @@ input[type=submit]:hover, button:hover {
 
 
 .main-game {
-  left: 10%;
-  right: 10%;
+  left: 5%;
+  right: 5%;
   top: 5%;
   bottom: 5%;
   position: absolute;
@@ -117,7 +121,7 @@ input[type=submit]:hover, button:hover {
 }
 
 .instructions-content {
-  margin: 50px;
+  margin: 20px;
   text-align: left;
   font-size: xx-large;
 }
