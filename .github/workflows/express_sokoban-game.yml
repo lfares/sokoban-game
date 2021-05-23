@@ -24,6 +24,9 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm install
+        npm install -g express
+        npm install -g firebase
+        npm install -g webpack
         npm run build --if-present
         npm run test --if-present
 
@@ -54,3 +57,6 @@ jobs:
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_55930a6d0a99442bb211b3f037301721 }}
         package: .
+    
+    - name: npm start
+      run: npm start
