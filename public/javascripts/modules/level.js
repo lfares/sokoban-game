@@ -84,9 +84,11 @@ class Level {
     }
 
     displayWin() {
-        const winModal = document.getElementById('win-div');
-        winModal.className = 'active';
-        document.removeEventListener('keydown', this.handleKeyDownFunction);
+        setTimeout(() => {
+            const winModal = document.getElementById('win-div');
+            winModal.className = 'active';
+            document.removeEventListener('keydown', this.handleKeyDownFunction);
+        }, 100);
     }
 
     displayEndGame() {
