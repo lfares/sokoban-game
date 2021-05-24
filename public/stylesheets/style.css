@@ -3,7 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
-  font-size: large;
+  font-size: medium;
 }
 
 canvas {
@@ -13,17 +13,17 @@ canvas {
 
 h1 {
   font-family: 'Paytone One', sans-serif;
-  font-size: 60px;
+  font-size: 45px;
 }
 
 h2 {
-  font-size: xx-large;
+  font-size: x-large;
   margin: 10px;
 }
 
 h3 {
   padding: 10px;
-  font-size: x-large;
+  font-size: large;
 }
 
 p {
@@ -43,10 +43,10 @@ input {
 input[type=submit], button {
   border-radius: 12px;
   margin: 10px;
-  padding: 20px;
+  padding: 15px;
   border: 3px solid black;
   font-weight: bold;
-  font-size: x-large;
+  font-size: large;
   background: #3fcc71;
 }
 
@@ -56,10 +56,10 @@ input[type=submit]:hover, button:hover {
 
 
 .main-game {
-  left: 5%;
-  right: 5%;
-  top: 5%;
-  bottom: 5%;
+  left: 2%;
+  right: 2%;
+  top: 2%;
+  bottom: 2%;
   position: absolute;
   display: flex;
   flex-direction: column;

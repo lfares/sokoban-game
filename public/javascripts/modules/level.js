@@ -13,8 +13,8 @@ class Level {
         this.context = this.canvas.getContext('2d');
 
         this.populateGridWithElements();
-        this.canvas.width = this.levelMatrix[0].length * 64;
-        this.canvas.height = this.levelMatrix.length * 64;
+        this.canvas.width = this.levelMatrix[0].length * 50;
+        this.canvas.height = this.levelMatrix.length * 50;
     }
 
     /**
@@ -71,7 +71,7 @@ class Level {
                 let currElement = this.grid[i][j];
                 if (currElement.imgSrc != 'empty') {
                     this.context.drawImage(elementsSheetImg, currElement.imgSrcPosition.x, currElement.imgSrcPosition.y,
-                        64, 64, j * 64, i * 64, 64, 64);
+                        64, 64, j * 50, i * 50, 50, 50);
                 }
             }
         }

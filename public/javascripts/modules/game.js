@@ -128,6 +128,7 @@ class Game {
         endModal.className = 'active';
         this.player.movementsByLevel[this.currentLevelId].push(this.currLevel.movements);
         this.player.timeByLevel[this.currentLevelId][1] = this.time;
+        this.updateDB();
     }
 
 }
