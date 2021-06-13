@@ -1,0 +1,128 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-size: medium;
+}
+
+canvas {
+  background-image: url('../images/ground.png');
+  margin: 10px;
+}
+
+h1 {
+  font-family: 'Paytone One', sans-serif;
+  font-size: 45px;
+}
+
+h2 {
+  font-size: x-large;
+  margin: 10px;
+}
+
+h3 {
+  padding: 10px;
+  font-size: large;
+}
+
+p {
+  padding: 10px;
+}
+
+img {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+}
+
+input {
+  padding: 8px;
+}
+
+input[type=submit], button {
+  border-radius: 12px;
+  margin: 10px;
+  padding: 15px;
+  border: 3px solid black;
+  font-weight: bold;
+  font-size: large;
+  background: #3fcc71;
+}
+
+input[type=submit]:hover, button:hover {
+  background: #2b864b;
+}
+
+
+.main-game {
+  left: 2%;
+  right: 2%;
+  top: 2%;
+  bottom: 2%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid black;
+  border-radius: 10px;
+  background: #deae7e;
+}
+
+.game-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+  text-align: left;
+  font-size: xx-large;
+  background: #3fcc71;
+  border: 3px solid;
+  border-radius: 10px;
+}
+
+
+.hidden {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+#win-div {
+  opacity: 1;
+}
+
+.modal-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.9);
+  transition: opacity 1s;
+}
+
+.modal-content {
+  position: absolute;
+  z-index: 1000;
+  top: 50%;
+  left: 25%;
+  right: 25%;
+  padding: 50px;
+  transform: translateY(-50%);
+  background-image: url('../images/modal-background.png');
+  border-radius: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.instructions-content {
+  margin: 20px;
+  text-align: left;
+  font-size: xx-large;
+}
+

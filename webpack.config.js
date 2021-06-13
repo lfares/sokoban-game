@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var path = require('path');
 
 module.exports = {
@@ -5,6 +6,13 @@ module.exports = {
   mode: 'development',
   output: {
     path: `${__dirname}/js`,
+=======
+module.exports = {
+  entry: './public/javascripts/modules/main.js',
+  mode: 'development',
+  output: {
+    path: `${__dirname}/public/javascripts`,
+>>>>>>> express
     filename: 'bundle.js'
   }
 };

@@ -1,4 +1,8 @@
 node_modules/
+<<<<<<< HEAD
 package-lock.json
 Sokoban-images/
 ngrok
+=======
+.vscode/
+>>>>>>> express

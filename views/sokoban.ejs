@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="./javascripts/bundle.js"></script>
+  </head>
+  <body>
+    <div class="main-game">
+      <h1>Sokoban</h1>
+      <div class="game-info">
+          <h3>Fase <span id="level-id"></span></h3>
+          <h3>Tempo: <span id="level-time"></span></h3>
+          <h3>Movimentos: <span id="move-counter"></span></h3>
+      </div>
+      <canvas id="canvas-main"></canvas>
+      <button id="reset-button" class="button" accesskey="r">Reiniciar</button>
+  </div>
+  <div id="player-div" class="hidden">
+      <section class="modal-content">
+          <h1>Bem vindo ao Sokoban!</h1>
+          <section class="instructions-content">
+            <h2>Como jogar:</h2>
+            <p>1. Use as setas do teclado para controlar o personagem</p>
+            <p>2. Empurre as caixas até o lugar demarcado, mas cuidado, você não pode puxá-las nem empurrar 2 de uma vez!</p>
+            <p>3. Se ficar travado, clique no botão reiniciar (ou alt + r) pare retornar às posições originais</p>
+            <p>4. Para passar de fase, clique no botão ou alt + a</p>
+            <p>4. Você terá 7 minutos para passar do máximo de fases possível!</p>
+            <h3>Divirta-se e pense bem nas suas jogadas para não travar!</h3>
+          </section>
+          <form>
+              <label for="player-name">Insira seu nome completo abaixo:</label><br><br>
+              <input type="text" id="player-name" name="player-name" autocomplete="off"><br>
+              <input type="submit" id="start-game" value="Começar a jogar">
+          </form>
+      </section>
+      <div class="modal-screen"></div>
+  </div>
+  <div id="win-div" class="hidden">
+      <section class="modal-content">
+        <h2>Parabéns!</h2>
+        <h2>Você passou de fase!</h2>
+        <button id="next-level-button" class="button" accesskey="a">Jogar próxima fase</button>
+      </section>
+      <div class="modal-screen"></div>
+  </div>
+  <div id="end-levels-div" class="hidden">
+      <section class="modal-content">
+        <h2>Parabéns!</h2>
+        <h2>Você terminou todas as fases!</h2>
+      </section>
+      <div class="modal-screen"></div>
+  </div>
+  <div id="end-time-div" class="hidden">
+      <section class="modal-content">
+        <h2>Acabou o tempo :(</h2>
+        <h2>Obrigada por jogar!</h2>
+      </section>
+      <div class="modal-screen"></div>
+  </div>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-analytics.js"></script>
+  </body>
+</html>

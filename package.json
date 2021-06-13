@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "sokoban-game",
   "version": "1.0.0",
   "description": "",
@@ -13,5 +14,26 @@
   },
   "dependencies": {
     "mocha": "^8.4.0"
+=======
+  "name": "sokoban2.0",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "webpack",
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "firebase": "^8.6.2",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0"
+>>>>>>> express
   }
 }
