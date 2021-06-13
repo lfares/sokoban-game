@@ -1,20 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "sokoban-game",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "webpack",
-    "start": "npx nodemon index.js"
-  },
-  "devDependencies": {
-    "webpack": "^5.37.0",
-    "webpack-cli": "^4.7.0"
-  },
-  "dependencies": {
-    "mocha": "^8.4.0"
-=======
   "name": "sokoban2.0",
   "version": "0.0.0",
   "private": true,
@@ -34,6 +18,5 @@
   "devDependencies": {
     "webpack": "^5.37.1",
     "webpack-cli": "^4.7.0"
->>>>>>> express
   }
 }

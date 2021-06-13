@@ -11,18 +11,6 @@ Download the code or run the following command:
 
 Then, open the _index.html_ file to play or start the web server.
 
-<<<<<<< HEAD
-To do that you will need to have Node.js installed. Then, you need to install npm and nodemon:
-
-    npm install
-    npm install nodemon
-
-Now, just start the server:
-
-    npm run build
-
-Go to http://localhost:8080 on your browser and start playing!
-=======
 To do that you will need to have Node.js installed. Then, you need to install npm:
 
     npm install
@@ -33,7 +21,6 @@ Now, build and start the server:
     npm start 
 
 Go to http://localhost:3000/sokoban on your browser and start playing!
->>>>>>> express
 
 ## Implementation
 
@@ -45,12 +32,6 @@ The project uses JavaScript Modules to organize and separate the classes and, to
 
 For more information on that, follow [this tutorial](https://www.sitepoint.com/bundle-static-site-webpack/).
 
-<<<<<<< HEAD
-### Web Server
-A web server was implemented to make it available to access the game without the project downloaded.
-
-More information on [this article](https://www.devmedia.com.br/construindo-um-servidor-web-com-node-js/32023) from DevMedia.
-=======
 ### DataBase
 A database is necessary to store game data for each player (movements, resets, time). For that it was used **[Google Firebase](https://console.firebase.google.com/u/2/?hl=pt-br)**. It is a simple real time database. 
 
@@ -69,4 +50,3 @@ To make the web server visible outside the local browser, it was used [Azure](ht
 There are many ways and systems to deploy the web server on the cloud. For this game it was used the "Web App" resource from [VS Code](https://code.visualstudio.com/). 
 
 More information on how to deploy it on [this tutorial](https://docs.microsoft.com/pt-br/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code?tabs=bash).
->>>>>>> express
